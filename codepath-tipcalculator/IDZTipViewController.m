@@ -38,9 +38,12 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.title = @"Tip Calculator";
-		self.tipValues = [NSMutableArray arrayWithArray:@[@(0.1), @(0.15), @(0.2), @(-1)]];
+		self.tipValues = [NSMutableArray arrayWithArray:@[@(0.1), @(0.15), @(0.2), @(0)]];
     }
-	[self resetSettings];
+
+	// for debug only
+	//[self resetSettings];
+
     return self;
 }
 

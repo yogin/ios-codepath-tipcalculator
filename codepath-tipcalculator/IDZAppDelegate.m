@@ -7,12 +7,18 @@
 //
 
 #import "IDZAppDelegate.h"
+#import "IDZTipViewController.h"
 
 @implementation IDZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    IDZTipViewController *tvc = [[IDZTipViewController alloc] init];
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:tvc];
+    self.window.rootViewController = nc;
+    
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

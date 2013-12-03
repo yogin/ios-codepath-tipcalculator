@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15200CDC184D9FE60038549F /* IDZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15200CDA184D9FE60038549F /* IDZSettingsViewController.m */; };
+		15200CDD184D9FE60038549F /* IDZSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15200CDB184D9FE60038549F /* IDZSettingsViewController.xib */; };
 		15F36CA8184D52FE001BDB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F36CA7184D52FE001BDB54 /* Foundation.framework */; };
 		15F36CAA184D52FE001BDB54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F36CA9184D52FE001BDB54 /* CoreGraphics.framework */; };
 		15F36CAC184D52FE001BDB54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15F36CAB184D52FE001BDB54 /* UIKit.framework */; };
@@ -34,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15200CD9184D9FE60038549F /* IDZSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDZSettingsViewController.h; sourceTree = "<group>"; };
+		15200CDA184D9FE60038549F /* IDZSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDZSettingsViewController.m; sourceTree = "<group>"; };
+		15200CDB184D9FE60038549F /* IDZSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IDZSettingsViewController.xib; sourceTree = "<group>"; };
 		15F36CA4184D52FE001BDB54 /* codepath-tipcalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "codepath-tipcalculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15F36CA7184D52FE001BDB54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		15F36CA9184D52FE001BDB54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +124,9 @@
 				15F36CD6184D5400001BDB54 /* IDZTipViewController.h */,
 				15F36CD7184D5400001BDB54 /* IDZTipViewController.m */,
 				15F36CD8184D5400001BDB54 /* IDZTipViewController.xib */,
+				15200CD9184D9FE60038549F /* IDZSettingsViewController.h */,
+				15200CDA184D9FE60038549F /* IDZSettingsViewController.m */,
+				15200CDB184D9FE60038549F /* IDZSettingsViewController.xib */,
 			);
 			path = "codepath-tipcalculator";
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F36CDA184D5400001BDB54 /* IDZTipViewController.xib in Resources */,
+				15200CDD184D9FE60038549F /* IDZSettingsViewController.xib in Resources */,
 				15F36CB2184D52FE001BDB54 /* InfoPlist.strings in Resources */,
 				15F36CBA184D52FE001BDB54 /* Images.xcassets in Resources */,
 			);
@@ -250,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15F36CB8184D52FE001BDB54 /* IDZAppDelegate.m in Sources */,
+				15200CDC184D9FE60038549F /* IDZSettingsViewController.m in Sources */,
 				15F36CB4184D52FE001BDB54 /* main.m in Sources */,
 				15F36CD9184D5400001BDB54 /* IDZTipViewController.m in Sources */,
 			);
@@ -454,6 +464,7 @@
 				15F36CD2184D52FE001BDB54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15F36CD3184D52FE001BDB54 /* Build configuration list for PBXNativeTarget "codepath-tipcalculatorTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +473,7 @@
 				15F36CD5184D52FE001BDB54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

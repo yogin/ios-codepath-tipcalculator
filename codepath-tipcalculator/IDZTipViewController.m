@@ -13,13 +13,19 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *billTextField;
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tipPercentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
 @property (weak, nonatomic) IBOutlet UITextView *infoText;
+@property (weak, nonatomic) IBOutlet UILabel *splitTipLabel;
+@property (weak, nonatomic) IBOutlet UILabel *splitAmountLabel;
+@property (weak, nonatomic) IBOutlet UISlider *splitSlider;
+@property (weak, nonatomic) IBOutlet UILabel *splitSliderLabel;
 
 @property NSMutableArray *tipValues;
 
 - (IBAction)onTap:(id)sender;
+- (IBAction)onSplitChange:(UISlider *)sender;
 
 - (void)updateValues;
 - (void)updateInfos:(float)amount;
@@ -30,6 +36,7 @@
 - (void)updateCustomTipPercent:(int)value;
 - (void)selectTip:(int)value;
 - (void)resetSettings;
+- (int)splitValue;
 
 @end
 
@@ -75,6 +82,17 @@
     [self updateValues];
 }
 
+- (IBAction)onSplitChange:(UISlider *)sender
+{
+    self.splitSliderLabel.text = [NSString stringWithFormat:@"%d", [self splitValue]];
+    [self updateValues];
+}
+
+- (int)splitValue
+{
+    return round(self.splitSlider.value);
+}
+
 - (float)getTipPercent:(int)index
 {
 	return [self.tipValues[index] floatValue];
@@ -100,11 +118,18 @@
 - (void)updateValues
 {
     float billAmount = [self.billTextField.text floatValue];
-    float tipAmount = billAmount * [self getTipPercent:self.tipControl.selectedSegmentIndex];
+    float tipPercent = [self getTipPercent:self.tipControl.selectedSegmentIndex];
+    float tipAmount = billAmount * tipPercent;
     float totalAmount = billAmount + tipAmount;
     
-    self.tipLabel.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
-    self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f", totalAmount];
+    float splitTip = tipAmount / [self splitValue];
+    float splitAmount = (billAmount / [self splitValue]) + splitTip;
+    
+    self.tipLabel.text = [NSString stringWithFormat:@"$%.2f", tipAmount];
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f", totalAmount];
+    self.tipPercentLabel.text = [NSString stringWithFormat:@"%.0f%%", tipPercent * 100];
+    self.splitTipLabel.text = [NSString stringWithFormat:@"$%.2f", splitTip];
+    self.splitAmountLabel.text = [NSString stringWithFormat:@"$%.2f", splitAmount];
 	
 	[self updateInfos:billAmount];
 }

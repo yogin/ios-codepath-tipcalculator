@@ -15,12 +15,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
+@property (weak, nonatomic) IBOutlet UITextView *infoText;
 
 @property NSMutableArray *tipValues;
 
 - (IBAction)onTap:(id)sender;
 
 - (void)updateValues;
+- (void)updateInfos:(float)amount;
 - (void)onSettingsButton;
 - (void)loadSettings;
 
@@ -103,6 +105,21 @@
     
     self.tipLabel.text = [NSString stringWithFormat:@"$%0.2f", tipAmount];
     self.totalLabel.text = [NSString stringWithFormat:@"$%0.2f", totalAmount];
+	
+	[self updateInfos:billAmount];
+}
+
+- (void)updateInfos:(float)amount
+{
+	NSMutableString *info = [[NSMutableString alloc] init];
+	NSArray *sortedTips = [self.tipValues sortedArrayUsingSelector:@selector(compare:)];
+	
+	for (NSNumber *tipPercent in sortedTips) {
+		float tipAmount = amount * [tipPercent floatValue];
+		[info appendFormat:@"Tip %3.0f%% = $%0.2f\n", [tipPercent floatValue] * 100, tipAmount];
+	}
+	
+	self.infoText.text = info;
 }
 
 - (void)onSettingsButton

@@ -23,16 +23,17 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
 		self.title = @"Settings";
-    }
-    return self;
+	}
+
+	return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
 	
 	self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(onDoneButton)];
 	
@@ -41,13 +42,12 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
+	[super didReceiveMemoryWarning];
 }
 
 - (void)onDoneButton
 {
 	[self updateSettings];
-	
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -72,4 +72,5 @@
 	int customTip = [defaults integerForKey:@"customTip"];
 	self.customTipTextField.text = [NSString stringWithFormat:@"%d", customTip];
 }
+
 @end

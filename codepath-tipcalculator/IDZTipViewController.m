@@ -48,7 +48,7 @@
 	if (self) {
 		self.title = @"Tip Calculator";
 		self.tipValues = [NSMutableArray arrayWithArray:@[@(0.1), @(0.15), @(0.2), @(0)]];
-    }
+	}
 
 	// for debug only
 	//[self resetSettings];
